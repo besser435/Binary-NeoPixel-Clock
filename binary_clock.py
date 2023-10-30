@@ -1,32 +1,49 @@
 import time
 import board
+import os
+import busio
 import neopixel
-
 import adafruit_ntp
 import socketpool
-import time
 import wifi
-import os
 #import adafruit_veml7700
+#import adafruit_ds3231
 
-
-DISPLAY_BRIGHTNESS = 0.1
+DISPLAY_BRIGHTNESS = 0.4
 SHUTOFF_LUX_THRESHOLD = 10
 
-H_COLOR = (255, 0, 0)
-M_COLOR = (0, 255, 0)
-S_COLOR = (0, 0, 255)
+H_COLOR = (7, 141, 112)
+M_COLOR = (255, 255, 0)
+S_COLOR = (61, 26, 120)
 
 
 # Hardware setup
 #i2c = busio.I2C(board.SCL, board.SDA)
-#veml7700 = adafruit_veml7700.VEML7700(i2c)
-wifi.radio.connect(os.getenv("WIFI_SSID"), os.getenv("WIFI_PASSWORD"))
-pool = socketpool.SocketPool(wifi.radio)
-ntp = adafruit_ntp.NTP(pool, tz_offset=-7)   # Set timezone here
-
+#veml = adafruit_veml7700.VEML7700(i2c)
+#rtc = adafruit_ds3231.DS3231(i2c)
 led_neo = neopixel.NeoPixel(board.GP15, 18, brightness=DISPLAY_BRIGHTNESS, auto_write=False, bpp=4)
 
+wifi.radio.connect(os.getenv("WIFI_SSID"), os.getenv("WIFI_PASSWORD"))
+pool = socketpool.SocketPool(wifi.radio)
+ntp = adafruit_ntp.NTP(pool, tz_offset=-7, server="pool.ntp.org")   # Set timezone here
+print("NTP server",ntp._server) # NOTE defaults to some adafruit pool, I want to use pool.ntp.org
+
+
+
+last_sync = None
+
+def get_time():
+    # If the last NTP sync was more than 45 minutes ago, sync the time first.
+    global last_sync
+    current_time = rtc.datetime
+    
+    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > 45:
+        # Perform NTP time synchronization
+        ntp_time = ntp.datetime
+        rtc.datetime = ntp_time  # Update RTC time with NTP time
+        last_sync = ntp_time  # Update the last sync time
+        
+    return rtc.datetime
 
 
 
@@ -53,8 +70,8 @@ def binary_time():
 
 
 def light_shutoff():    # turns the display off if it's dark, like when you're sleeping
-    lux = veml7700.lux
-    light = veml7700.light
+    lux = veml.lux
+    light = veml.light
     print("Lux:", lux)
     print("Ambient Light:", light)
 
@@ -107,11 +124,22 @@ def paint_display():
     led_neo.show()
 
 
-while True:
-    paint_display()
-    #light_shutoff()
 
-    time.sleep(1)
-    print("\n" * 3)
+try:
+    while True:
+        paint_display()
+        #light_shutoff()
+
+        time.sleep(1)
+        print("\n" * 3)
+except Exception as e:
+    print(e)
+    start = time.monotonic()
+    for i in range(10):
+        led_neo.fill((100, 0, 0))
+        led_neo.show()
+        print(i)
+    end = time.monotonic()
+    print(end - start)
 
 
