@@ -1,2 +1,0 @@
-Circuitpython is cool, but I hate how much boiler plate I need for stuff like WiFi. NTP, and RTC
-CPython on a cheap Pi Zero W might just be better, since its all built in to the OS.
