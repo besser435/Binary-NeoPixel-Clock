@@ -9,16 +9,26 @@ import wifi
 import adafruit_veml7700
 import adafruit_ds3231
 from random import randint
+from collections import OrderedDict
+
+"""
+https://github.com/besser435/Binary-NeoPixel-Clock
+"""
 
 DISPLAY_BRIGHTNESS = 0.4
 SHUTOFF_LUX_THRESHOLD = 60
 
-h_color = (255, 0, 0)
-m_color = (0, 255, 0)
-s_color = (0, 0, 255)
+color_options = { #7, 141, 112 pretty blue color
+                1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)), # Enby
+                2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),          # RGB
+                3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),    # Bi
+                4:((255, 0, 0), (96, 96, 96, 96), (10, 49, 97)),    # USA
+                5:((255, 33, 140), (255, 216, 0), (33, 177, 255)),  # Pan
+                6:((3, 252, 206), (165, 3, 252), (65, 252, 3))      # Cyan, Purple, Green
+}
 
 
-# Hardware, WiFi, NTP setup
+# Hardware, WiFi, NTP, Color setup
 i2c = busio.I2C(board.SCL, board.SDA)
 veml = adafruit_veml7700.VEML7700(i2c)
 rtc = adafruit_ds3231.DS3231(i2c)
@@ -31,19 +41,24 @@ pool = socketpool.SocketPool(wifi.radio)
 ntp = adafruit_ntp.NTP(pool, tz_offset=-7, server="pool.ntp.org")   # Set timezone and server here
 print(f"NTP server: {ntp._server}")
 
-
-
+h_color = None
+m_color = None
+s_color = None
 last_sync = None
-def get_time():
-    # If the last NTP sync was more than 45 minutes ago, sync the time first.
+
+
+def get_time(): #BUG doesn't work, or at least doesn't update last_sync
     global last_sync
     current_time = rtc.datetime
-    
-    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > (45 + randint(0, 2)): # randint per pool.ntp.org TOS   
+
+    # If the last NTP sync was more than 45 minutes ago, sync the time first
+    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > (2 + randint(0, 2)): # randint per pool.ntp.org TOS   
         print("Syncing time from NTP server")
+        
         ntp_time = ntp.datetime
         rtc.datetime = ntp_time  # Update RTC time with NTP time
         last_sync = ntp_time  # Update the last sync time
+        print(f"last_sync {last_sync}")
 
     return rtc.datetime
 
@@ -63,20 +78,77 @@ def binary_time():
     bin_secs = bin(secs)[2:]
     bin_secs = "0" * (6 - len(bin_secs)) + bin_secs
 
-    print(f"Time: {hours}:{mins}:{secs}")    
+    print(f"Dec Time: {hours}:{mins}:{secs}")    
     print(f"Bin Time: {bin_hours}:{bin_mins}:{bin_secs}")
 
     return bin_hours, bin_mins, bin_secs
 
 
-def light_shutoff():    # turns the display off if it's dark, like when you're sleeping
-    light = veml.light
-    print(f"Ambient Light: {light}")
+def brightness_fade(pixel: object, target_brightness: float, duration: float) -> None:
+    """
+    Should be its own library at some point.
 
-    if light > SHUTOFF_LUX_THRESHOLD:
+    Depending on the NeoPixels used, it might not be a linear fade.
+    In some cases, it will fade faster at lower brightnesses.
+    """
+
+    original_brightness = pixel.brightness
+    steps = int(duration * 300)
+
+    # Determine if increasing or decreasing brightness
+    if target_brightness > original_brightness:
+        step_value = (target_brightness - original_brightness) / steps
+    else:
+        step_value = (original_brightness - target_brightness) / steps
+
+    # Brightness fade
+    for i in range(steps + 1):
+        if target_brightness > original_brightness: 
+            new_brightness = original_brightness + i * step_value   # Positive fade
+        else:                                     
+            new_brightness = original_brightness - i * step_value   # Negative fade
+
+        pixel.brightness = new_brightness
+        pixel.show()
+        time.sleep(duration / steps)
+    pixel.brightness = target_brightness  # Ensure we get there / avoid float rounding errors
+    pixel.show()
+
+
+def light_shutoff():    # Changes the display brightness based on ambient light
+    light = veml.light
+
+    brightness_lookup = OrderedDict([   # OrderedDict; more CircuitPython fuckery (WHY IS IT NOT ORDERED!?)
+        (60, 0),
+        (100, 0.15),
+        (300, 0.25),
+        (400, 0.4),
+        (600, 0.55),
+        (800, 0.75),
+        (1500, 1)
+    ])
+
+
+    for key, value in brightness_lookup.items():
+        if light < 60: 
+            brightness_fade(led_neo, 0, 1)
+            break
+
+
+        if light < key:
+            led_neo.brightness = value
+            break
+        else:
+            led_neo.brightness = 1
+    print(f"key: {key}, value: {value}, light: {light}")       
+
+    #TODO only update every 5 seconds to avoid flickering
+
+
+    """if light > SHUTOFF_LUX_THRESHOLD:
         led_neo.brightness = DISPLAY_BRIGHTNESS
     else:
-        led_neo.brightness = 0
+        led_neo.brightness = 0"""
         
 
 def paint_display():
@@ -102,16 +174,7 @@ def paint_display():
 
 def pick_color():
     global h_color, m_color, s_color
-    #7, 141, 112 pretty blue color
-    color_options = {
-                    1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)), # Enby
-                    2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),          # RGB
-                    3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),    # Bi
-                    4:((255, 0, 0), (96, 96, 96, 96), (10, 49, 97)),    # USA
-                    5:((255, 33, 140), (255, 216, 0), (33, 177, 255))   # Pan
-                    
-    }
-
+    global color_choice
     current_colors = (h_color, m_color, s_color)
 
     while True: # Randomly pick an option from color_options and ensure it's not the current one
@@ -121,11 +184,10 @@ def pick_color():
         if new_colors != current_colors:
             h_color, m_color, s_color = new_colors
             break
-    print(f"Using color set {color_choice}, with colors ({h_color}, {m_color}, {s_color})")
 
 
-try:  
-    led_neo.fill((0, 0, 0, 255))
+try:
+    led_neo.fill((0, 0, 255))
     led_neo.show()
     pick_color()
     while True:
@@ -140,6 +202,7 @@ try:
         light_shutoff()
         
         print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec}")
+        print(f"Using color set {color_choice}, with colors {h_color}, {m_color}, {s_color}")
         print("\n" * 2)
         time.sleep(1)
         
@@ -147,8 +210,8 @@ except Exception as e:
     while True:
         print(e)
 
-        led_neo.fill((100, 0, 0))
+        led_neo.fill((255, 0, 0))
         led_neo.show()
         light_shutoff()
 
-        time.sleep(1)    
+        time.sleep(1)
