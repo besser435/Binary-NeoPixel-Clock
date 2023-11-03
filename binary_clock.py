@@ -18,7 +18,7 @@ https://github.com/besser435/Binary-NeoPixel-Clock
 DISPLAY_BRIGHTNESS = 0.4
 SHUTOFF_LUX_THRESHOLD = 60
 
-color_options = { #7, 141, 112 pretty blue color
+color_options = { #7, 141, 112 pretty blue color, orange could be cool too
                 1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)), # Enby
                 2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),          # RGB
                 3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),    # Bi
@@ -35,7 +35,7 @@ rtc = adafruit_ds3231.DS3231(i2c)
 led_neo = neopixel.NeoPixel(board.D10, 18, brightness=DISPLAY_BRIGHTNESS, auto_write=False, bpp=4)
 
 wifi.radio.connect(os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD"))
-print(f"Connected to: '{os.getenv('CIRCUITPY_WIFI_SSID')}")
+print(f"Connected to: {os.getenv('CIRCUITPY_WIFI_SSID')}")
 
 pool = socketpool.SocketPool(wifi.radio)
 ntp = adafruit_ntp.NTP(pool, tz_offset=-7, server="pool.ntp.org")   # Set timezone and server here
@@ -47,18 +47,17 @@ s_color = None
 last_sync = None
 
 
-def get_time(): #BUG doesn't work, or at least doesn't update last_sync
+def get_time():
     global last_sync
     current_time = rtc.datetime
 
     # If the last NTP sync was more than 45 minutes ago, sync the time first
-    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > (2 + randint(0, 2)): # randint per pool.ntp.org TOS   
+    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > (45 + randint(0, 2)): # randint per pool.ntp.org TOS   
         print("Syncing time from NTP server")
         
         ntp_time = ntp.datetime
-        rtc.datetime = ntp_time  # Update RTC time with NTP time
-        last_sync = ntp_time  # Update the last sync time
-        print(f"last_sync {last_sync}")
+        rtc.datetime = ntp_time # Update RTC time with NTP time
+        last_sync = ntp_time    # Update the last sync time
 
     return rtc.datetime
 
@@ -119,7 +118,7 @@ def light_shutoff():    # Changes the display brightness based on ambient light
     light = veml.light
 
     brightness_lookup = OrderedDict([   # OrderedDict; more CircuitPython fuckery (WHY IS IT NOT ORDERED!?)
-        (60, 0),
+        (25, 0),
         (100, 0.15),
         (300, 0.25),
         (400, 0.4),
@@ -128,28 +127,18 @@ def light_shutoff():    # Changes the display brightness based on ambient light
         (1500, 1)
     ])
 
-
     for key, value in brightness_lookup.items():
-        if light < 60: 
-            brightness_fade(led_neo, 0, 1)
+        if light < 25: 
+            brightness_fade(led_neo, 0, 0.8)
             break
-
 
         if light < key:
             led_neo.brightness = value
             break
         else:
             led_neo.brightness = 1
-    print(f"key: {key}, value: {value}, light: {light}")       
+    print(f"key: {key}, value: {value}, light: {light}")
 
-    #TODO only update every 5 seconds to avoid flickering
-
-
-    """if light > SHUTOFF_LUX_THRESHOLD:
-        led_neo.brightness = DISPLAY_BRIGHTNESS
-    else:
-        led_neo.brightness = 0"""
-        
 
 def paint_display():
     """
