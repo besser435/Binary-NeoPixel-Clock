@@ -18,13 +18,15 @@ https://github.com/besser435/Binary-NeoPixel-Clock
 DISPLAY_BRIGHTNESS = 0.4
 SHUTOFF_LUX_THRESHOLD = 60
 
-color_options = { #7, 141, 112 pretty blue color, orange could be cool too
-                1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)), # Enby
-                2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),          # RGB
-                3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),    # Bi
-                4:((255, 0, 0), (96, 96, 96, 96), (10, 49, 97)),    # USA
-                5:((255, 33, 140), (255, 216, 0), (33, 177, 255)),  # Pan
-                6:((3, 252, 206), (165, 3, 252), (65, 252, 3))      # Cyan, Purple, Green
+color_options = { 
+    1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)),     # Enby
+    2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),              # RGB
+    3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),        # Bi
+    4:((225, 10, 10), (110, 80, 80, 80), (15, 0, 215)),     # USA
+    5:((255, 33, 140), (255, 216, 0), (33, 177, 255)),      # Pan
+    6:((3, 252, 206), (165, 3, 252), (65, 252, 3)),         # Cyan, Purple, Green
+    7:((96, 96, 96, 96), (255, 112, 193), (91, 206, 250)),  # Trans
+    8:((255, 20, 0), (255, 154, 0), (15, 0, 215))           # Arizona
 }
 
 
@@ -45,18 +47,23 @@ h_color = None
 m_color = None
 s_color = None
 last_sync = None
+total_syncs = 0
 
 
 def get_time():
-    global last_sync
+    global last_sync, total_syncs
     current_time = rtc.datetime
-
-    # If the last NTP sync was more than 45 minutes ago, sync the time first
-    if last_sync is None or (current_time.tm_min - last_sync.tm_min) > (45 + randint(0, 2)): # randint per pool.ntp.org TOS   
-        print("Syncing time from NTP server")
+    
+    if last_sync is None or ((last_sync.tm_hour != current_time.tm_hour) and (last_sync.tm_min == (current_time.tm_min + randint(0, 5)))):
+        print("Syncing time from NTP server...")
         
         ntp_time = ntp.datetime
         rtc.datetime = ntp_time # Update RTC time with NTP time
+
+        # manually add two seconds to account for the time it takes to sync
+        #ntp_time.tm_sec += 2    # I really hope this doesnt overflow
+        total_syncs += 1
+
         last_sync = ntp_time    # Update the last sync time
 
     return rtc.datetime
@@ -190,8 +197,9 @@ try:
 
         light_shutoff()
         
-        print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec}")
+        print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec} {last_sync.tm_mon}-{last_sync.tm_mday}-{last_sync.tm_year}")
         print(f"Using color set {color_choice}, with colors {h_color}, {m_color}, {s_color}")
+        print(f"Total syncs: {total_syncs}")
         print("\n" * 2)
         time.sleep(1)
         
