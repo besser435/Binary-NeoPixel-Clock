@@ -22,7 +22,7 @@ color_options = {
     1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)),     # Enby
     2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),              # RGB
     3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),        # Bi
-    4:((225, 10, 10), (110, 80, 80, 80), (15, 0, 215)),     # USA
+    4:((255, 5, 5), (110, 80, 80, 80), (5, 0, 255)),        # USA
     5:((255, 33, 140), (255, 216, 0), (33, 177, 255)),      # Pan
     6:((3, 252, 206), (165, 3, 252), (65, 252, 3)),         # Cyan, Purple, Green
     7:((96, 96, 96, 96), (255, 112, 193), (91, 206, 250)),  # Trans
@@ -38,6 +38,7 @@ led_neo = neopixel.NeoPixel(board.D10, 18, brightness=DISPLAY_BRIGHTNESS, auto_w
 
 wifi.radio.connect(os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD"))
 print(f"Connected to: {os.getenv('CIRCUITPY_WIFI_SSID')}")
+print(f"IP Address: {wifi.radio.ipv4_address}")
 
 pool = socketpool.SocketPool(wifi.radio)
 ntp = adafruit_ntp.NTP(pool, tz_offset=-7, server="pool.ntp.org")   # Set timezone and server here
@@ -47,11 +48,10 @@ h_color = None
 m_color = None
 s_color = None
 last_sync = None
-total_syncs = 0
 
 
 def get_time():
-    global last_sync, total_syncs
+    global last_sync
     current_time = rtc.datetime
     
     if last_sync is None or ((last_sync.tm_hour != current_time.tm_hour) and (last_sync.tm_min == (current_time.tm_min + randint(0, 5)))):
@@ -59,11 +59,6 @@ def get_time():
         
         ntp_time = ntp.datetime
         rtc.datetime = ntp_time # Update RTC time with NTP time
-
-        # manually add two seconds to account for the time it takes to sync
-        #ntp_time.tm_sec += 2    # I really hope this doesnt overflow
-        total_syncs += 1
-
         last_sync = ntp_time    # Update the last sync time
 
     return rtc.datetime
@@ -121,12 +116,12 @@ def brightness_fade(pixel: object, target_brightness: float, duration: float) ->
     pixel.show()
 
 
-def light_shutoff():    # Changes the display brightness based on ambient light
+def set_brightness():    # Changes the display brightness based on ambient light
     light = veml.light
 
     brightness_lookup = OrderedDict([   # OrderedDict; more CircuitPython fuckery (WHY IS IT NOT ORDERED!?)
-        (25, 0),
-        (100, 0.15),
+        (55, 0),
+        (120, 0.15),
         (300, 0.25),
         (400, 0.4),
         (600, 0.55),
@@ -182,33 +177,40 @@ def pick_color():
             break
 
 
-try:
-    led_neo.fill((0, 0, 255))
-    led_neo.show()
-    pick_color()
-    while True:
-        current_time = get_time()
-        if (current_time.tm_min == 0 and current_time.tm_sec == 0):
-            # Change color every hour (not a great implementation)
-            # Instead it should change when the current hour != last hour, then update last hour to current hour
-            pick_color()
+# Init
+led_neo.fill((0, 0, 64))
+led_neo.show()
+pick_color()
+set_brightness()
 
-        paint_display()
+# Main loop
+last_update_main = time.monotonic()
+last_update_light = time.monotonic()
+while True:
+    try:
+        if time.monotonic() - last_update_main >= 0.5:
+            last_update_main = time.monotonic()
 
-        light_shutoff()
-        
-        print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec} {last_sync.tm_mon}-{last_sync.tm_mday}-{last_sync.tm_year}")
-        print(f"Using color set {color_choice}, with colors {h_color}, {m_color}, {s_color}")
-        print(f"Total syncs: {total_syncs}")
-        print("\n" * 2)
-        time.sleep(1)
-        
-except Exception as e:
-    while True:
+            current_time = get_time()
+            if (current_time.tm_min == 0 and current_time.tm_sec == 0):
+                # Change color every hour (not a great implementation)
+                # Instead it should change when the current hour != last hour, then update last hour to current hour
+                pick_color()
+
+            paint_display()
+            
+            print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec} {last_sync.tm_mon}-{last_sync.tm_mday}-{last_sync.tm_year}")
+            print(f"Using color set {color_choice}, with colors {h_color}, {m_color}, {s_color}")
+            print("\n" * 2)
+
+        if time.monotonic() - last_update_light >= 5:
+            last_update_light = time.monotonic()
+            set_brightness()
+
+    except Exception as e:
         print(e)
-
+        print("Trying again in 10 seconds")
         led_neo.fill((255, 0, 0))
         led_neo.show()
-        light_shutoff()
-
-        time.sleep(1)
+        set_brightness()
+        time.sleep(5)
