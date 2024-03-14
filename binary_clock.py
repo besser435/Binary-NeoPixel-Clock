@@ -54,7 +54,8 @@ def get_time():
     global last_sync
     current_time = rtc.datetime
     
-    if last_sync is None or ((last_sync.tm_hour != current_time.tm_hour) and (last_sync.tm_min == (current_time.tm_min + randint(-5, 5)))):
+    # the thing below needs to be redone. it will always eventually fall to the :00 minute, removing randomness
+    if last_sync is None or ((last_sync.tm_hour != current_time.tm_hour) and (last_sync.tm_min == (current_time.tm_min + randint(0, 5)))):
         print("Syncing time from NTP server...")
         
         ntp_time = ntp.datetime
