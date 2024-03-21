@@ -1,3 +1,15 @@
 
 /binary_clock_PCB/binary_clock-backups
 binary_clock_PCB/\#auto_saved_files\#
+
+*.000
+*.bak
+*.bck
+*.kicad_pcb-bak
+*.sch-bak
+*~
+_autosave-*
+*.tmp
+*-save.pro
+*-save.kicad_pcb
+fp-info-cache
