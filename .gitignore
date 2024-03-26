@@ -14,3 +14,4 @@ _autosave-*
 *-save.kicad_pcb
 fp-info-cache
 *.kicad_prl
+binary_clock_PCB/~binary_clock.kicad_pcb.lck
