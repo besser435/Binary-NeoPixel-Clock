@@ -681,7 +681,7 @@
       "plot": "C:/Users/brand/Desktop/pc_test/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "binary_clock.step",
       "svg": "",
       "vrml": ""
     },
