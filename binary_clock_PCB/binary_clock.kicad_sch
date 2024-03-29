@@ -5540,12 +5540,12 @@
 		(uuid "6a6e0651-522f-4d3c-ae01-343fbc66ebc6")
 	)
 	(no_connect
-		(at 53.34 255.27)
-		(uuid "6ed819c4-084f-4e4c-8b79-6533e3b4051e")
-	)
-	(no_connect
 		(at 53.34 207.01)
 		(uuid "72cd2ac2-47ee-457f-86cd-383585bd19bf")
+	)
+	(no_connect
+		(at 53.34 199.39)
+		(uuid "7ea7345e-d639-4c22-b563-2fff7f0768aa")
 	)
 	(no_connect
 		(at 140.97 266.7)
@@ -6180,6 +6180,16 @@
 			(type default)
 		)
 		(uuid "54b8c226-6818-408a-9bf3-70fcf418fe64")
+	)
+	(wire
+		(pts
+			(xy 63.5 255.27) (xy 53.34 255.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56b03008-8dde-4233-ae34-23d1e22eff11")
 	)
 	(wire
 		(pts
@@ -6850,16 +6860,6 @@
 			(type default)
 		)
 		(uuid "ba8aca13-dbe5-4e90-8b81-bd22a3291e6c")
-	)
-	(wire
-		(pts
-			(xy 53.34 199.39) (xy 63.5 199.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc73dcb0-7323-4bd3-a1a8-225a4b9f1bdb")
 	)
 	(wire
 		(pts
@@ -7632,7 +7632,7 @@
 		(uuid "3c7dd5c5-3cd9-4c90-b844-80ed9791be6c")
 	)
 	(label "PPS"
-		(at 63.5 199.39 180)
+		(at 63.5 255.27 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7640,7 +7640,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "400eda41-734f-4d71-8b13-a9f52851d20c")
+		(uuid "4333acd5-8930-470e-a17a-58506774167f")
 	)
 	(label "RSR_3V"
 		(at 302.26 213.36 0)
@@ -7719,7 +7719,7 @@
 		)
 		(uuid "6fb42c86-9513-44f3-bcc8-d716f534a92f")
 	)
-	(label "VBUS"
+	(label "3V3"
 		(at 264.16 165.1 0)
 		(fields_autoplaced yes)
 		(effects
@@ -7785,7 +7785,7 @@
 		)
 		(uuid "8597f3bf-904a-45af-9920-acce665d7b8e")
 	)
-	(label "3V3"
+	(label "VBUS"
 		(at 264.16 167.64 0)
 		(fields_autoplaced yes)
 		(effects
@@ -9033,7 +9033,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "1uF"
 			(at 76.2 237.4899 0)
 			(effects
 				(font
@@ -9861,7 +9861,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "1uF"
 			(at 232.41 176.53 0)
 			(effects
 				(font
@@ -15832,7 +15832,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "1uF"
 			(at 111.76 237.49 0)
 			(effects
 				(font
@@ -17213,7 +17213,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "1uF"
 			(at 196.85 176.5299 0)
 			(effects
 				(font
