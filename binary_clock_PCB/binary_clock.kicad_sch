@@ -5486,16 +5486,8 @@
 		(uuid "115ddfcd-ba62-4f3d-939a-9998f8dbc1a4")
 	)
 	(no_connect
-		(at 237.49 264.16)
-		(uuid "119d8d94-dbcb-4c88-8790-5012a867e048")
-	)
-	(no_connect
 		(at 53.34 267.97)
 		(uuid "20fc0ba9-e2d9-47d9-b1ab-3777df0351af")
-	)
-	(no_connect
-		(at 53.34 245.11)
-		(uuid "2184ab9a-e188-4691-80fd-19a31ff665f0")
 	)
 	(no_connect
 		(at 53.34 232.41)
@@ -5980,6 +5972,16 @@
 			(type default)
 		)
 		(uuid "488ea2cb-7af9-4ba5-9fea-ced96694dff1")
+	)
+	(wire
+		(pts
+			(xy 237.49 264.16) (xy 245.11 264.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c410fc5-bc1e-4218-bdba-af6e04b67751")
 	)
 	(polyline
 		(pts
@@ -7083,6 +7085,16 @@
 	)
 	(wire
 		(pts
+			(xy 53.34 245.11) (xy 63.5 245.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e364ba6e-a4eb-4d97-80e2-44d8729193b5")
+	)
+	(wire
+		(pts
 			(xy 162.56 184.15) (xy 162.56 187.96)
 		)
 		(stroke
@@ -7512,6 +7524,17 @@
 		)
 		(uuid "1af23585-5fdd-46aa-a438-6c4fc5cff79a")
 	)
+	(label "ALM"
+		(at 63.5 245.11 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1daaa7f3-24c8-4f7f-8b20-9c0cad6a5bd6")
+	)
 	(label "PPS"
 		(at 176.53 266.7 180)
 		(fields_autoplaced yes)
@@ -7687,6 +7710,17 @@
 			(justify left bottom)
 		)
 		(uuid "6354bfee-6438-4c58-badb-928084bdede9")
+	)
+	(label "ALM"
+		(at 245.11 264.16 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6911e0a2-a268-4fb2-9b5a-1709716274ff")
 	)
 	(label "RESET"
 		(at 238.76 209.55 0)
