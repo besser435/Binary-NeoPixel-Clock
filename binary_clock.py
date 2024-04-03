@@ -178,6 +178,10 @@ def pick_color():
             break
 
 
+def set_alarm():
+    pass
+
+
 # Init
 led_neo.fill((0, 0, 64))
 led_neo.show()
