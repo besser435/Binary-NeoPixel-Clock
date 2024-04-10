@@ -1,4 +1,4 @@
-# Binary NeoPixel Clock
+# Lightbeam S3
  
 TODO:<br>
 Fix USB and VCC lines at the edge of the board<br>
