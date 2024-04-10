@@ -462,7 +462,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "binary_clock.kicad_pro",
+    "filename": "lightbeam_s3.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -699,10 +699,10 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "C:/Users/brand/OneDrive/Python/GitHub/Binary-NeoPixel-Clock/binary_clock_PCB/Gerber/",
+      "plot": "Gerber/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "binary_clock.step",
+      "step": "lightbeam_s3.step",
       "svg": "",
       "vrml": ""
     },
