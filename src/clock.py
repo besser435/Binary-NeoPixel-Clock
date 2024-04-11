@@ -10,6 +10,7 @@ import adafruit_veml7700
 import adafruit_ds3231
 from random import randint
 from collections import OrderedDict
+import digitalio
 import asyncio
 
 
@@ -17,8 +18,8 @@ import asyncio
 https://github.com/besser435/Binary-NeoPixel-Clock
 """
 
-DISPLAY_BRIGHTNESS = 0.4
-SHUTOFF_LUX_THRESHOLD = 60
+DISPLAY_BRIGHTNESS = 0.2
+SHUTOFF_LUX_THRESHOLD = 25
 
 color_options = { 
     1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)),     # Enby
@@ -36,7 +37,11 @@ color_options = {
 i2c = busio.I2C(board.SCL, board.SDA)
 veml = adafruit_veml7700.VEML7700(i2c)
 rtc = adafruit_ds3231.DS3231(i2c)
-led_neo = neopixel.NeoPixel(board.D10, 18, brightness=DISPLAY_BRIGHTNESS, auto_write=False, bpp=4)
+neo_disp = neopixel.NeoPixel(board.NEO_DISP, 18, brightness=DISPLAY_BRIGHTNESS, auto_write=False, bpp=4)
+
+#ldo = digitalio.DigitalInOut(board.LDO2)
+#ldo.direction = digitalio.Direction.OUTPUT
+
 
 wifi.radio.connect(os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD"))
 print(f"Connected to: {os.getenv('CIRCUITPY_WIFI_SSID')}")
@@ -73,15 +78,24 @@ async def set_brightness():
         ])
 
         for key, value in brightness_lookup.items():
-            if light < 25: 
-                brightness_fade(led_neo, 0, 0.8)
+            if light < SHUTOFF_LUX_THRESHOLD: 
+                #brightness_fade(led_neo, 0, 0.8)
+                neo_disp.brightness = 0
                 break
 
             if light < key:
-                led_neo.brightness = value
+                neo_disp.brightness = value
                 break
             else:
-                led_neo.brightness = 1
+                neo_disp.brightness = 1
         print(f"key: {key}, value: {value}, light: {light}")
 
         await asyncio.sleep(2)
+
+
+
+async def main():  # Don't forget the async!
+    brightness_task = asyncio.create_task(set_brightness())
+    await asyncio.gather(brightness_task)
+
+asyncio.run(main())

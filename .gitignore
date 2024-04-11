@@ -15,3 +15,5 @@ _autosave-*
 fp-info-cache
 *.kicad_prl
 binary_clock_PCB/~binary_clock.kicad_pcb.lck
+/lightbeam_s3_PCB/lightbeam_s3-backups
+*.lck
