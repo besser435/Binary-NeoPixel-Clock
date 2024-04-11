@@ -5,9 +5,9 @@
 	(uuid "6e85e51c-9ae3-4e5c-b193-13cd65a7b908")
 	(paper "A3")
 	(title_block
-		(title "Binary Neopixel Clock")
-		(date "2024-03-11")
-		(rev "R1")
+		(title "Lightbeam S3")
+		(date "2024-04-10")
+		(rev "R2")
 		(company "besser")
 	)
 	(lib_symbols
@@ -8134,7 +8134,7 @@
 			(uuid "72224e62-7547-4753-8645-5ffdebded89f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0145")
 					(unit 1)
@@ -8201,7 +8201,7 @@
 			(uuid "2777fbab-7fa3-423d-adb0-74b536a87699")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0136")
 					(unit 1)
@@ -8267,7 +8267,7 @@
 			(uuid "99a873cd-c6be-4406-a1d1-e99f74efa30b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0135")
 					(unit 1)
@@ -8334,7 +8334,7 @@
 			(uuid "e7d607fe-716f-4af7-ba9b-5e5db597ade3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0118")
 					(unit 1)
@@ -8401,7 +8401,7 @@
 			(uuid "3cee83b5-808e-4a9d-b375-082c614bd100")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0116")
 					(unit 1)
@@ -8467,7 +8467,7 @@
 			(uuid "fad5b2f6-87b2-4e4b-98b2-c0701ffc3731")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR08")
 					(unit 1)
@@ -8542,7 +8542,7 @@
 			(uuid "b0a03434-af96-4bd7-9707-b6df2a7c78c8")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D17")
 					(unit 1)
@@ -8619,7 +8619,7 @@
 			(uuid "b8e69205-e120-4890-b72d-e0de1c06c7c8")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U2")
 					(unit 1)
@@ -8689,7 +8689,7 @@
 			(uuid "95325f96-2f9e-4099-89d3-6296d2a17f7e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C12")
 					(unit 1)
@@ -8764,7 +8764,7 @@
 			(uuid "838d9b7d-fe1f-4dee-8a96-b46ea2d451ce")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D11")
 					(unit 1)
@@ -8832,7 +8832,7 @@
 			(uuid "1708ac71-a1ec-4a28-943d-93b2d75a5682")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0164")
 					(unit 1)
@@ -8900,7 +8900,7 @@
 			(uuid "fd81f973-67c8-48f6-8165-ecf2f0a4fb0f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0143")
 					(unit 1)
@@ -8966,7 +8966,7 @@
 			(uuid "0ba6ce66-9c56-4e91-b3f4-ce3964195958")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR015")
 					(unit 1)
@@ -9032,7 +9032,7 @@
 			(uuid "7679b15a-8472-4ea4-9298-c720d1332f25")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR017")
 					(unit 1)
@@ -9107,7 +9107,7 @@
 			(uuid "9e5328d1-ac64-4e8b-9fb3-c362f16aac5c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D1")
 					(unit 1)
@@ -9174,7 +9174,7 @@
 			(uuid "02fae1b2-f980-4a3e-8865-120962dc3d92")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR04")
 					(unit 1)
@@ -9244,7 +9244,7 @@
 			(uuid "9dfa92d3-e15a-4588-b5e2-ed225b858032")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C2")
 					(unit 1)
@@ -9314,7 +9314,7 @@
 			(uuid "534a3691-54ee-4b04-8272-a873a1df9865")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C16")
 					(unit 1)
@@ -9389,7 +9389,7 @@
 			(uuid "36345cf3-4729-4db8-966d-1ba1fd723c39")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D20")
 					(unit 1)
@@ -9456,7 +9456,7 @@
 			(uuid "dd69eacf-9198-4597-a818-5548d0020ee2")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0109")
 					(unit 1)
@@ -9523,7 +9523,7 @@
 			(uuid "22085192-2dee-4b31-bcce-86d60ea12074")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0165")
 					(unit 1)
@@ -9602,7 +9602,7 @@
 			(uuid "c1159895-8ec3-418b-8849-89db7d8641a7")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U7")
 					(unit 1)
@@ -9667,7 +9667,7 @@
 			(uuid "7878f2d5-9791-4a29-b3a9-e7e34e599cf4")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0103")
 					(unit 1)
@@ -9737,7 +9737,7 @@
 			(uuid "1b1aa55d-9ded-4eea-9da2-4eda887e6b43")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C6")
 					(unit 1)
@@ -9805,7 +9805,7 @@
 			(uuid "1462abcc-c530-49a4-ac94-9c78c154d096")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0153")
 					(unit 1)
@@ -9870,7 +9870,7 @@
 			(uuid "ae132ddc-0bee-41a6-bec9-5511f9810ea9")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR03")
 					(unit 1)
@@ -9940,7 +9940,7 @@
 			(uuid "0efe28ce-174f-4b50-aec9-cc89a12c94e3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C5")
 					(unit 1)
@@ -10058,7 +10058,7 @@
 			(uuid "74e28796-0b53-4e24-bd01-d18c5aac3e2e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U4")
 					(unit 1)
@@ -10123,7 +10123,7 @@
 			(uuid "69d3241a-675c-4bc2-a26d-b4db27ef7575")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0129")
 					(unit 1)
@@ -10192,7 +10192,7 @@
 			(uuid "e960c705-521f-4a65-b82c-51667e32f282")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "R2")
 					(unit 1)
@@ -10260,7 +10260,7 @@
 			(uuid "ed3b4778-c2f9-46e4-9630-4d73379557d6")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0156")
 					(unit 1)
@@ -10335,7 +10335,7 @@
 			(uuid "cc95b192-aa4f-4e35-b91f-245e36ae5341")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D7")
 					(unit 1)
@@ -10401,7 +10401,7 @@
 			(uuid "af0c785d-2a5e-4ee6-b508-d47a2230d694")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR011")
 					(unit 1)
@@ -10466,7 +10466,7 @@
 			(uuid "27d10e72-6144-4359-8a89-61850178c001")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0119")
 					(unit 1)
@@ -10533,7 +10533,7 @@
 			(uuid "7a9d3689-8962-42c3-bdd6-0dcb92e9394a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0130")
 					(unit 1)
@@ -10601,7 +10601,7 @@
 			(uuid "dab96b18-4e64-4e32-9504-c172684158bf")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0160")
 					(unit 1)
@@ -10668,7 +10668,7 @@
 			(uuid "696db343-9da0-4f5a-bfbb-d99162c8c076")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0102")
 					(unit 1)
@@ -10738,7 +10738,7 @@
 			(uuid "9ffa3b02-25ac-43de-874b-dd3c054ab513")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C15")
 					(unit 1)
@@ -10813,7 +10813,7 @@
 			(uuid "096cf7b9-8fe8-46dc-a7bc-8e4c3e72df31")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D5")
 					(unit 1)
@@ -10879,7 +10879,7 @@
 			(uuid "e147514c-c51c-4558-bc77-980764f447c3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0121")
 					(unit 1)
@@ -10947,7 +10947,7 @@
 			(uuid "46d4fb57-34ad-4f4d-9eb9-07684979b4f3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0152")
 					(unit 1)
@@ -11012,7 +11012,7 @@
 			(uuid "3f601a57-c660-4fc8-a654-66cc9fa8daad")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0169")
 					(unit 1)
@@ -11082,7 +11082,7 @@
 			(uuid "ab316e91-72cd-4514-9367-e8f0289f3501")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C27")
 					(unit 1)
@@ -11147,7 +11147,7 @@
 			(uuid "530f4986-00e1-4b91-a3ce-3468ffb2183f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR01")
 					(unit 1)
@@ -11224,7 +11224,7 @@
 			(uuid "c697541b-06bd-47de-b282-0bbace07d1a2")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U3")
 					(unit 1)
@@ -11291,7 +11291,7 @@
 			(uuid "4ce83e80-7ac5-4c28-b4e6-c6a89667369f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0113")
 					(unit 1)
@@ -11359,7 +11359,7 @@
 			(uuid "5dd2aeb0-3123-4551-a5ba-1fe23987f99a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0132")
 					(unit 1)
@@ -11429,7 +11429,7 @@
 			(uuid "411e59bd-e760-4cd1-b8bc-ad7789d9a250")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C17")
 					(unit 1)
@@ -11454,7 +11454,7 @@
 				)
 			)
 		)
-		(property "Value" "NSR0320MW2T1G"
+		(property "Value" "PMEG1020EA"
 			(at 157.734 171.45 0)
 			(effects
 				(font
@@ -11480,7 +11480,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "20V 1A Schottky Diode, SOD-323"
+		(property "Description" "10V 2A Schottky Diode, SOD-323"
 			(at 157.48 176.53 0)
 			(effects
 				(font
@@ -11496,7 +11496,7 @@
 			(uuid "eefefa5b-e7e9-43d6-9773-888a8a5dc48e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D2")
 					(unit 1)
@@ -11561,7 +11561,7 @@
 			(uuid "f4534683-3b15-45d4-9214-b6d66365cc7b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0106")
 					(unit 1)
@@ -11626,7 +11626,7 @@
 			(uuid "534990fa-a3aa-45c6-ae94-981eb22e138e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0177")
 					(unit 1)
@@ -11692,7 +11692,7 @@
 			(uuid "d8709872-9fbd-43b3-b5ba-896828d88c6f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR021")
 					(unit 1)
@@ -11759,7 +11759,7 @@
 			(uuid "cd77fdf1-04d9-459b-8cfc-64d1de6aa30c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0115")
 					(unit 1)
@@ -11824,7 +11824,7 @@
 			(uuid "e5cc5e24-52db-4b6b-b443-bdb3c8ad985c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0111")
 					(unit 1)
@@ -11894,7 +11894,7 @@
 			(uuid "5ef8c08d-6593-4744-b3ce-9d64b7e1633d")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C13")
 					(unit 1)
@@ -11969,7 +11969,7 @@
 			(uuid "0e41892b-7910-44f3-9a33-b7a8e5379453")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D9")
 					(unit 1)
@@ -12039,7 +12039,7 @@
 			(uuid "e53d68e1-30a0-4dae-870b-2941def09a9c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C10")
 					(unit 1)
@@ -12115,7 +12115,7 @@
 			(uuid "f24c6f1a-4c74-4f3a-a191-eba3cbf9ad1b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J4")
 					(unit 1)
@@ -12183,7 +12183,7 @@
 			(uuid "d30e76ae-a0c8-448b-a9d2-5840d76cd77a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0163")
 					(unit 1)
@@ -12296,7 +12296,7 @@
 			(uuid "2f655051-93a3-4215-a2f2-5e10de9c680b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J1")
 					(unit 1)
@@ -12420,7 +12420,7 @@
 			(uuid "cac737d7-80b6-4688-8595-83a30ca8a714")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U6")
 					(unit 1)
@@ -12490,7 +12490,7 @@
 			(uuid "4b6f4cbc-9ecb-43ee-965b-bfb590d201b8")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C26")
 					(unit 1)
@@ -12558,7 +12558,7 @@
 			(uuid "b7b9cb61-9108-496b-9ae2-2b4ebd46e928")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0126")
 					(unit 1)
@@ -12628,7 +12628,7 @@
 			(uuid "633513d1-e77c-44b2-9c98-5a6b5eca72ea")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C8")
 					(unit 1)
@@ -12695,7 +12695,7 @@
 			(uuid "40fb2741-d499-4f46-ad4e-61facb8f63cd")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0172")
 					(unit 1)
@@ -12761,7 +12761,7 @@
 			(uuid "aab216d6-3487-4a8f-b33e-0be3d8355abe")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0133")
 					(unit 1)
@@ -12831,7 +12831,7 @@
 			(uuid "7045e0fe-108c-441a-b2b0-b9048f3c9240")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C24")
 					(unit 1)
@@ -12901,7 +12901,7 @@
 			(uuid "3d770531-2b8f-42d2-8c0a-f7d3ce0cf3b5")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C25")
 					(unit 1)
@@ -12969,7 +12969,7 @@
 			(uuid "c1a62b6c-2004-4db6-beb4-5304e3956631")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0144")
 					(unit 1)
@@ -13037,7 +13037,7 @@
 			(uuid "5f3dde22-ec28-447b-a972-931398d67b43")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "R5")
 					(unit 1)
@@ -13103,7 +13103,7 @@
 			(uuid "72092066-3f96-4b1a-91a6-15ebf1af7f60")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR014")
 					(unit 1)
@@ -13173,7 +13173,7 @@
 			(uuid "186f0ef1-9cd9-446f-b32a-d0aed65e296a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C19")
 					(unit 1)
@@ -13239,7 +13239,7 @@
 			(uuid "68ad2d50-eaa9-46b8-8326-c8b74e6b6a75")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR018")
 					(unit 1)
@@ -13307,7 +13307,7 @@
 			(uuid "b9913396-6bf5-4522-a5c7-765dcfe16e24")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0158")
 					(unit 1)
@@ -13375,7 +13375,7 @@
 			(uuid "3009a1ef-80d7-4ccc-970b-069f61d3fd0d")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0142")
 					(unit 1)
@@ -13442,7 +13442,7 @@
 			(uuid "66c65386-f13a-4e72-81b6-4dea110414c2")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0170")
 					(unit 1)
@@ -13518,7 +13518,7 @@
 			(uuid "b12521e1-e6e3-4b0c-8332-bcf66bb62810")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J5")
 					(unit 1)
@@ -13585,7 +13585,7 @@
 			(uuid "fbf7f688-6e5e-4e6d-b5ce-5e1756687da4")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0166")
 					(unit 1)
@@ -13709,7 +13709,7 @@
 			(uuid "30e7c2a7-7c55-47cd-bbe1-6ac3a248cc67")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U8")
 					(unit 1)
@@ -13775,7 +13775,7 @@
 			(uuid "a2eb15e6-22db-4922-8f18-b12e694e289a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR06")
 					(unit 1)
@@ -13840,7 +13840,7 @@
 			(uuid "96e0da94-ae37-422c-87f7-309ff9ea2d7c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0167")
 					(unit 1)
@@ -13907,7 +13907,7 @@
 			(uuid "4dafd1e3-b309-4d26-94a8-aa9099a1e22a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0117")
 					(unit 1)
@@ -13974,7 +13974,7 @@
 			(uuid "533dd909-d071-4ef1-a331-6e4af2d34e3d")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR02")
 					(unit 1)
@@ -14049,7 +14049,7 @@
 			(uuid "29b5b658-7fc2-4ae9-b7b4-c82969ca89ad")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D8")
 					(unit 1)
@@ -14116,7 +14116,7 @@
 			(uuid "f0ef3f08-943f-4876-af05-2ec578ba607e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0110")
 					(unit 1)
@@ -14183,7 +14183,7 @@
 			(uuid "28e761de-7798-4c2c-b638-4c0b779d32a4")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0105")
 					(unit 1)
@@ -14249,7 +14249,7 @@
 			(uuid "ef3bce15-d8b2-4c4a-afd5-9a5f73221229")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR05")
 					(unit 1)
@@ -14315,7 +14315,7 @@
 			(uuid "643d1bfb-4de4-48b0-a29f-290ee38cedb8")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR016")
 					(unit 1)
@@ -14383,7 +14383,7 @@
 			(uuid "4e44a574-7965-4425-8c97-03fa433e360b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "SW1")
 					(unit 1)
@@ -14453,7 +14453,7 @@
 			(uuid "7416b8e8-6460-4942-8155-d4e1b0df24f5")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C28")
 					(unit 1)
@@ -14523,7 +14523,7 @@
 			(uuid "6cae2c53-c6c3-468b-be58-38def7bf3dac")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C21")
 					(unit 1)
@@ -14589,7 +14589,7 @@
 			(uuid "164ed2fc-7c9d-49f2-8a0e-b2d8a4cdb463")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR019")
 					(unit 1)
@@ -14701,7 +14701,7 @@
 			(uuid "3699cf0a-4260-406d-a5b8-134c1806c1c1")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U5")
 					(unit 1)
@@ -14770,7 +14770,7 @@
 			(uuid "a2bc9a67-a121-45c3-a3a2-0db40caf45ce")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C9")
 					(unit 1)
@@ -14838,7 +14838,7 @@
 			(uuid "3013e311-816a-437b-b0c8-d2bea3bbea1d")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "SW2")
 					(unit 1)
@@ -14908,7 +14908,7 @@
 			(uuid "5e1a9c70-7858-4a5e-bdf1-a31f954ac21b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C20")
 					(unit 1)
@@ -14975,7 +14975,7 @@
 			(uuid "3acebb48-8f68-438e-8613-e4408765d2ae")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "R4")
 					(unit 1)
@@ -15040,7 +15040,7 @@
 			(uuid "1f240cfd-e078-4507-bf4d-609c652605a8")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0168")
 					(unit 1)
@@ -15106,7 +15106,7 @@
 			(uuid "56c7a4b2-6645-447b-b8d2-9f9f237690c1")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR07")
 					(unit 1)
@@ -15176,7 +15176,7 @@
 			(uuid "7a7ee134-a752-4b2c-aa27-c00620cb4e5f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C23")
 					(unit 1)
@@ -15242,7 +15242,7 @@
 			(uuid "ee1406bc-9658-4264-a6da-8359cd33da7f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR09")
 					(unit 1)
@@ -15312,7 +15312,7 @@
 			(uuid "453b321b-701b-4d5f-8ef3-c7b762196731")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C22")
 					(unit 1)
@@ -15387,7 +15387,7 @@
 			(uuid "a03333c5-df64-45f6-8855-9ef27422ec75")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D14")
 					(unit 1)
@@ -15574,7 +15574,7 @@
 			(uuid "007e73e5-d65f-443e-81c4-4a11226795c1")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "U1")
 					(unit 1)
@@ -15640,7 +15640,7 @@
 			(uuid "3f0a8947-d411-4597-8cc2-a2e5429d4e17")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR010")
 					(unit 1)
@@ -15707,7 +15707,7 @@
 			(uuid "9b4f2173-5b7a-421b-9be4-6c15459dd554")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0104")
 					(unit 1)
@@ -15773,7 +15773,7 @@
 			(uuid "ac53edc3-a876-43b1-a183-8d201ac64d21")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0174")
 					(unit 1)
@@ -15841,7 +15841,7 @@
 			(uuid "3a9fd57d-43c4-448f-8e34-9d03e5f461bd")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0146")
 					(unit 1)
@@ -15911,7 +15911,7 @@
 			(uuid "97556e83-32b5-4c44-815d-19fccf0f9fd3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C3")
 					(unit 1)
@@ -15981,7 +15981,7 @@
 			(uuid "5e851293-47f5-4cd6-9c93-382b90fb8679")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C11")
 					(unit 1)
@@ -16047,7 +16047,7 @@
 			(uuid "fc122234-2e7b-41f6-be65-c09ba8b9d1d7")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR020")
 					(unit 1)
@@ -16117,7 +16117,7 @@
 			(uuid "b58f2728-0a3b-4c64-abb2-ffaba88e54d5")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J2")
 					(unit 1)
@@ -16186,7 +16186,7 @@
 			(uuid "cbcd78ca-f1bb-46e9-a104-ff3ee314626e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "R1")
 					(unit 1)
@@ -16253,7 +16253,7 @@
 			(uuid "7cef1e4c-4fa9-4e0c-a93f-ce48a1dda57f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0107")
 					(unit 1)
@@ -16328,7 +16328,7 @@
 			(uuid "8f06efd9-8d1e-45aa-aae4-251f531e355b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D15")
 					(unit 1)
@@ -16395,7 +16395,7 @@
 			(uuid "f4103599-3d1b-4780-8163-44722670db00")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0175")
 					(unit 1)
@@ -16470,7 +16470,7 @@
 			(uuid "05e2d945-6f77-46ab-bad1-bea84f499c6e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D13")
 					(unit 1)
@@ -16538,7 +16538,7 @@
 			(uuid "677c7289-50a4-4ddb-a97a-937331966c7b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0124")
 					(unit 1)
@@ -16603,7 +16603,7 @@
 			(uuid "0fc27705-5bd0-4aa6-92c2-fa1a9cd82f5a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0171")
 					(unit 1)
@@ -16668,7 +16668,7 @@
 			(uuid "28428062-25b0-4101-994e-4be79ec2fcbb")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0173")
 					(unit 1)
@@ -16743,7 +16743,7 @@
 			(uuid "ce71e55e-3c38-43e6-94dc-7130370d8db6")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D4")
 					(unit 1)
@@ -16810,7 +16810,7 @@
 			(uuid "f39362b7-4c31-4861-8beb-cfc73f14816c")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0178")
 					(unit 1)
@@ -16879,7 +16879,7 @@
 			(uuid "3aa34dbd-fd42-46ad-8d14-0264e14cb9a2")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C7")
 					(unit 1)
@@ -16946,7 +16946,7 @@
 			(uuid "3a3450d1-cb9c-47af-a3c6-f4360d290a32")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "R3")
 					(unit 1)
@@ -17021,7 +17021,7 @@
 			(uuid "c03eeb9d-935f-4c40-8f4c-0545717ab9c7")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D18")
 					(unit 1)
@@ -17091,7 +17091,7 @@
 			(uuid "e8e4a93f-dfca-4a11-b493-eda40228f5a4")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "JP3")
 					(unit 1)
@@ -17156,7 +17156,7 @@
 			(uuid "f4a84006-9553-4e3d-b971-ffe7403a962b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0179")
 					(unit 1)
@@ -17226,7 +17226,7 @@
 			(uuid "5a93d2aa-e3ee-46d2-aa11-7e11ec46299f")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C4")
 					(unit 1)
@@ -17296,7 +17296,7 @@
 			(uuid "1a70f009-eece-46f4-a940-b0b87ae64319")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C18")
 					(unit 1)
@@ -17371,7 +17371,7 @@
 			(uuid "959bc318-252d-4627-a075-848dfb6aa192")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D6")
 					(unit 1)
@@ -17439,7 +17439,7 @@
 			(uuid "dc74c048-ed0a-4dd2-acf6-adea3cd9acdf")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0150")
 					(unit 1)
@@ -17506,7 +17506,7 @@
 			(uuid "307000e3-8b6a-4c4d-92ab-7d5fe766563b")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0114")
 					(unit 1)
@@ -17576,7 +17576,7 @@
 			(uuid "8351413c-7ce3-4ba1-b83f-bc2eaf460388")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C14")
 					(unit 1)
@@ -17651,7 +17651,7 @@
 			(uuid "a8654b68-739b-4532-a4dc-afdfb8dfd3e5")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D19")
 					(unit 1)
@@ -17726,7 +17726,7 @@
 			(uuid "6a22e007-0853-4085-b9b0-b65ac500c7b5")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D10")
 					(unit 1)
@@ -17794,7 +17794,7 @@
 			(uuid "9bfe38ed-ee2f-4506-9531-477f3ffef5d4")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0112")
 					(unit 1)
@@ -17882,7 +17882,7 @@
 			(uuid "7d367402-43d6-4fbf-b9c7-5511fcb35d4e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J3")
 					(unit 1)
@@ -17947,7 +17947,7 @@
 			(uuid "bb8f173f-e8ca-4290-913f-f7ac7d503c7e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0120")
 					(unit 1)
@@ -18013,7 +18013,7 @@
 			(uuid "ff005872-af51-4d63-816d-8fe2d7d43a50")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0122")
 					(unit 1)
@@ -18080,7 +18080,7 @@
 			(uuid "207a8e73-a195-4330-abb7-3bd455d23a0a")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0108")
 					(unit 1)
@@ -18146,7 +18146,7 @@
 			(uuid "b1baa660-f0f3-4098-a03f-a1af6040f3f0")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR013")
 					(unit 1)
@@ -18211,7 +18211,7 @@
 			(uuid "607579d4-dc20-4092-9de5-2d6acd1177b3")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0128")
 					(unit 1)
@@ -18278,7 +18278,7 @@
 			(uuid "e1e07cbf-fb61-42bd-bead-762ec7d6d320")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0176")
 					(unit 1)
@@ -18348,7 +18348,7 @@
 			(uuid "204b9022-08c0-4966-9439-259280c8b5cc")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "C1")
 					(unit 1)
@@ -18424,7 +18424,7 @@
 			(uuid "df5be0fa-3ae5-449d-af2e-0ad2b17dd01e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "J6")
 					(unit 1)
@@ -18499,7 +18499,7 @@
 			(uuid "014c42a0-954a-4873-a81b-da66082ce3e9")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D16")
 					(unit 1)
@@ -18567,7 +18567,7 @@
 			(uuid "b698fe35-449c-4209-8fea-fd5fb0d8f302")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0147")
 					(unit 1)
@@ -18633,7 +18633,7 @@
 			(uuid "01343caa-1382-4b19-ad3c-9b2d49d3c14e")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0123")
 					(unit 1)
@@ -18701,7 +18701,7 @@
 			(uuid "ef9422d4-9594-4480-87a5-56e8cd0fe970")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR0134")
 					(unit 1)
@@ -18776,7 +18776,7 @@
 			(uuid "9cf374fe-4d12-4008-b097-95d5c42bb3cc")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D3")
 					(unit 1)
@@ -18842,7 +18842,7 @@
 			(uuid "fa3730dd-526e-4919-a9ad-f342c8e489e7")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "#PWR012")
 					(unit 1)
@@ -18917,7 +18917,7 @@
 			(uuid "33c5341c-e496-4b92-9268-e1eea8ffec03")
 		)
 		(instances
-			(project "binary_clock"
+			(project "lightbeam_s3"
 				(path "/6e85e51c-9ae3-4e5c-b193-13cd65a7b908"
 					(reference "D12")
 					(unit 1)
