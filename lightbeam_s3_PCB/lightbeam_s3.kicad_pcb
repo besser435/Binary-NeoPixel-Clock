@@ -6041,7 +6041,6 @@
 				)
 			)
 		)
-		(path "/81989886-36f2-41e0-9e18-e1ffcde0086c")
 		(sheetname "Root")
 		(sheetfile "lightbeam_s3.kicad_sch")
 		(attr smd dnp)
@@ -6270,7 +6269,7 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C7"
-			(at -2.5 0 360)
+			(at -2.5 0 0)
 			(layer "F.SilkS")
 			(uuid "459419eb-22c9-43ef-9f4e-80f8476dfdff")
 			(effects
@@ -6281,7 +6280,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 0 1.43 360)
+			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "b2411c87-5cf8-43c6-94c6-85e1592a9ccc")
 			(effects
@@ -6433,7 +6432,7 @@
 			(uuid "084b2693-c34d-4749-b759-3dc575f1d4a2")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "57efe77e-9197-45f6-bfc7-0447392a668a")
 			(effects
@@ -12973,7 +12972,7 @@
 		(path "/bbc5dfe2-86bb-4f75-bcf1-7bf93f1510d8")
 		(sheetname "Root")
 		(sheetfile "lightbeam_s3.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -1.515 0.76)
 			(end -0.885 0.76)
@@ -14935,7 +14934,7 @@
 		(path "/288c609c-050e-4ac0-bcae-fcb158b707b3")
 		(sheetname "Root")
 		(sheetfile "lightbeam_s3.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(fp_line
 			(start -4.96 -5.16)
 			(end -4.96 -5.01)

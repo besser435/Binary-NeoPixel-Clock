@@ -7354,6 +7354,17 @@
 		)
 		(uuid "7bb4e580-4098-4d2f-b35b-bd87cfbd20b1")
 	)
+	(text "GNSS for time is probably overkill, \nand is currently not supported in software."
+		(exclude_from_sim no)
+		(at 118.11 281.432 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "7d23ddd3-acdf-408c-9720-1adffccf57ca")
+	)
 	(text "Timekeeping and Light Sensor\n"
 		(exclude_from_sim no)
 		(at 209.55 232.664 0)
@@ -9955,7 +9966,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "288c609c-050e-4ac0-bcae-fcb158b707b3")
 		(property "Reference" "U4"
@@ -13598,8 +13609,8 @@
 		(at 361.95 213.36 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp yes)
 		(uuid "81989886-36f2-41e0-9e18-e1ffcde0086c")
 		(property "Reference" "U8"
@@ -16062,7 +16073,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "bbc5dfe2-86bb-4f75-bcf1-7bf93f1510d8")
 		(property "Reference" "J2"
