@@ -7313,12 +7313,12 @@
 		)
 		(uuid "11af6bc9-438d-4eac-9e73-0a94e867d029")
 	)
-	(text "In case the normal position of the light sensor is sheilded \nby the case, this part of the PCB can be removed so the light\nsensor can be on a daughterboard for better light visibility. \nIt is attached with a Qwiic connecter (JST-SH with I2C).\nThis is to save cost from it being a seperate PCB.\n"
+	(text "In case of dim environments, the sensor can be on \na daughterboard for better light visibility where \nit sticks out more from the enlcosure. It is \nattached with a Qwiic connecter (JST-SH with I2C).\nThis is to save cost from it being a seperate PCB.\n"
 		(exclude_from_sim no)
-		(at 359.41 247.142 0)
+		(at 343.662 238.252 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.651 1.651)
 			)
 			(justify left)
 		)
@@ -7356,10 +7356,10 @@
 	)
 	(text "GNSS for time is probably overkill, \nand is currently not supported in software."
 		(exclude_from_sim no)
-		(at 118.11 281.432 0)
+		(at 117.348 281.432 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 1.651 1.651)
 			)
 			(justify left)
 		)
@@ -13468,7 +13468,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(dnp yes)
 		(uuid "7903bbc5-9e4f-441e-929e-8bc0f6895cce")
 		(property "Reference" "J5"
@@ -14408,9 +14408,9 @@
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
+		(in_bom no)
+		(on_board no)
+		(dnp yes)
 		(uuid "9d640171-5f30-426e-b039-33bd311f07e6")
 		(property "Reference" "C28"
 			(at 378.714 213.36 0)
@@ -18374,7 +18374,7 @@
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
-		(on_board yes)
+		(on_board no)
 		(dnp yes)
 		(uuid "e722c920-aa16-4599-9af5-c363f513ec76")
 		(property "Reference" "J6"
