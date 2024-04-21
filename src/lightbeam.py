@@ -13,17 +13,36 @@ from collections import OrderedDict
 import digitalio
 import asyncio
 import adafruit_gps
+import adafruit_requests
+from adafruit_datetime import datetime
+import math
+from microcontroller import watchdog as wdt
+
 
 
 """
+Lightbeam S3
+
+Use on CircuitPython 9.0.0 or later
+
 https://github.com/besser435/Lightbeam-S3
-"""
+Hardware and software by besser
 
+
+
+TODO 
+move stuff to settings.toml
+Create proper CP build and update pins in this file
+
+"""
 
 TZ_OFFSET = -7
-MAX_BRIGHTNESS = 0.4
-SHUTOFF_LUX_THRESHOLD = 50
+TZ_REGION = "America/Phoenix"
+NTP_SERVER = "pool.ntp.org" #TODO maybe just use pool.ntp.org instead of worldtimeapi. more reliable probably
+USE_GPS_OVER_NTP = False
 
+MAX_BRIGHTNESS = 0.4    # TODO if USB is connected, set to 0.1 to avoid overcurrent
+SHUTOFF_LUX_THRESHOLD = 13
 
 color_options = { 
     1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)),     # Enby
@@ -39,31 +58,38 @@ color_options = {
 
 
 # Hardware, WiFi, NTP, Color setup
-neo_disp = neopixel.NeoPixel(board.IO3, 18, brightness=0.4, auto_write=False, bpp=4)
+ldo = digitalio.DigitalInOut(board.LDO2)
+ldo.direction = digitalio.Direction.OUTPUT
+ldo.value = True
+
+i2c = busio.I2C(scl=board.IO14, sda=board.IO12, frequency=400_000)
+
+neo_disp = neopixel.NeoPixel(board.IO3, 18, brightness=0.2, auto_write=False, bpp=4)
 
 #neo_mcu = neopixel.NeoPixel(board.IO2, 1, brightness=1, auto_write=False, bpp=4)
-
-i2c = busio.I2C(scl=board.IO13, sda=board.IO14, frequency=100_000)
-
-rtc = adafruit_ds3231.DS3231(i2c)
-
-veml = adafruit_veml7700.VEML7700(i2c)
 
 gnss = adafruit_gps.GPS_GtopI2C(i2c, debug=False)
 #gnss_pps = digitalio.DigitalInOut(board.)
 #gnss_pps.direction = digitalio.Direction.INPUT
 
-#ldo = digitalio.DigitalInOut(board.LDO2)
-#ldo.direction = digitalio.Direction.OUTPUT
-#ldo.value = True
+rtc = adafruit_ds3231.DS3231(i2c)
+
+veml = adafruit_veml7700.VEML7700(i2c)
+veml.ALS_800MS
+veml.ALS_GAIN_2
+
+wdt.mode = None # disable the watchdog. (was running into it too often)
 
 wifi.radio.connect(os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD"))
 print(f"Connected to: {os.getenv('CIRCUITPY_WIFI_SSID')}")
 print(f"IP Address: {wifi.radio.ipv4_address}")
 
 pool = socketpool.SocketPool(wifi.radio)
-ntp = adafruit_ntp.NTP(pool, tz_offset=TZ_OFFSET, server="pool.ntp.org")   # Set timezone and server here
-print(f"NTP server: {ntp._server}")
+ntp = adafruit_ntp.NTP(pool, tz_offset=TZ_OFFSET, server=NTP_SERVER)
+
+requests = adafruit_requests.Session(pool, pool)
+
+
 
 last_sync = None
 time_now = None
@@ -83,7 +109,7 @@ async def brightness_fade(pixel: object, target_brightness: float, duration: flo
     """
 
 
-    print(f"target_brightness: {target_brightness}, duration: {duration}")
+    print(f"Target_brightness: {target_brightness}, duration: {duration}")
 
 
     original_brightness = pixel.brightness
@@ -104,7 +130,7 @@ async def brightness_fade(pixel: object, target_brightness: float, duration: flo
 
         pixel.brightness = new_brightness
         pixel.show()
-        time.sleep(duration / steps)
+        await asyncio.sleep(duration / steps)
     pixel.brightness = target_brightness  # Ensure we get there / avoid float rounding errors
     pixel.show()
 
@@ -113,11 +139,8 @@ async def set_brightness(): # TODO if 0, disable back pixel. else 100% brightnes
     while True:
         light = veml.light
 
-        # TODO set gain
-
-        
         brightness_lookup = OrderedDict([   # OrderedDict; more CircuitPython fuckery (WHY IS IT NOT ORDERED!?)
-            (55, 0),
+            (50, 0.07),
             (120, 0.15),
             (300, 0.25),
             (400, 0.4),
@@ -128,42 +151,74 @@ async def set_brightness(): # TODO if 0, disable back pixel. else 100% brightnes
 
 
         for key, value in brightness_lookup.items():
-            #if light < SHUTOFF_LUX_THRESHOLD: 
-            if light < 25: 
-                brightness_fade(neo_disp, 0, 0.8)
+            if light < SHUTOFF_LUX_THRESHOLD: 
+                await brightness_fade(neo_disp, 0, 0.3)
                 break
-
             elif light < key:
-                #brightness_fade(neo_disp, value, 0.8)
-                neo_disp.brightness = value
+                await brightness_fade(neo_disp, value, 0.3)
                 break
-            else:
-                neo_disp.brightness = 1
+            elif light > key:
+                brightness_fade(neo_disp, 1, 0.3)
 
 
-        neo_disp.show()
-
-
-        print(f"key: {key}, value: {value}, light: {light}, neo_disp.brightness: {neo_disp.brightness}")
+        print(f"Key: {key}, value: {value}, light: {light}, neo_disp.brightness: {neo_disp.brightness}")
 
         await asyncio.sleep(2)
 
 
-async def sync_rtc():
+async def ntp_sync_rtc():
     global last_sync
     global time_now
 
     while True:
         print("Syncing time from NTP server...")
         
-        ntp_time = ntp.datetime
-        rtc.datetime = ntp_time # Update RTC time with NTP time
-        last_sync = ntp_time    # Update the last sync time
+        #ntp_time = ntp.datetime
+        #rtc.datetime = ntp_time     # Update RTC datetime with NTP datetime
+        #last_sync = ntp_time
+
+
+        request = requests.get(f"http://worldtimeapi.org/api/timezone/{TZ_REGION}")
+
+        time = request.json()["datetime"]
+        dt_object = datetime.fromisoformat(time)
+        time_struct = dt_object.timetuple()
+
+        rtc.datetime = time_struct
+        last_sync = time_struct
 
         await asyncio.sleep(3600 + randint(-5, 5))
 
 
-def pick_color():
+async def gnss_sync_rtc():
+    global last_sync
+    global time_now
+
+    while True:
+        print("Syncing time from GNSS...")
+
+
+        gnss.update()
+        print(f"GNSS 3D Fix: {gnss.fix_quality_3d}")
+        print(f"GNSS Sats: {gnss.satellites}")
+
+        if gnss.has_fix:
+            # rtc.datetime = (gnss.timestamp_utc.tm_year,
+            #                 gnss.timestamp_utc.tm_mon,
+            #                 gnss.timestamp_utc.tm_mday,
+            #                 gnss.timestamp_utc.tm_hour,
+            #                 gnss.timestamp_utc.tm_min,
+            #                 gnss.timestamp_utc.tm_sec, 0, 0
+            #                 )
+            
+            # last_sync = gnss.timestamp_utc
+            print(f"GNSS Time: {gnss.timestamp_utc.tm_hour}:{gnss.timestamp_utc.tm_min}:{gnss.timestamp_utc.tm_sec}")
+            pass
+
+        await asyncio.sleep(1)
+
+
+async def pick_color():
     global h_color, m_color, s_color
     global color_choice
     current_colors = (h_color, m_color, s_color)
@@ -206,31 +261,30 @@ async def update_times():    # very funky, some stuff is done twice and is stupi
 
 
 async def paint_display():
-    while True:
-        if last_sync is not None:
-            """
-            Hour, minute, second each get 6 bits/pixels for the 
-            binary display.
-            """
+    hour_checked = None
 
+    while True:
+        if last_sync:
             bin_hours, bin_mins, bin_secs = time_bin
             binary_values = bin_hours + bin_mins + bin_secs
-            zero_color = (0, 0, 0)
+            zero_color = (0, 0, 0, 0)
 
 
-            if time_now.tm_min == 0 and time_now.tm_sec == 0:
-                pick_color()
+        if time_now.tm_hour != hour_checked:    # Change color every hour
+            hour_checked = time_now.tm_hour
+            await pick_color()
 
 
-            for i in range(len(binary_values)):
-                if i < 6:
-                    target_color = h_color if binary_values[i] == "1" else zero_color
-                elif i < 12:
-                    target_color = m_color if binary_values[i] == "1" else zero_color
-                else:
-                    target_color = s_color if binary_values[i] == "1" else zero_color
-                neo_disp[i] = target_color
-            neo_disp.show()
+        for i in range(len(binary_values)):
+            if i < 6:
+                target_color = h_color if binary_values[i] == "1" else zero_color
+            elif i < 12:
+                target_color = m_color if binary_values[i] == "1" else zero_color
+            else:
+                target_color = s_color if binary_values[i] == "1" else zero_color
+            neo_disp[i] = target_color
+
+        neo_disp.show()
 
         await asyncio.sleep(0)
 
@@ -245,7 +299,7 @@ async def info_print():
 
         print("\n\n")
 
-        await asyncio.sleep(0.2)
+        await asyncio.sleep(0.1)
 
 
 
@@ -254,19 +308,19 @@ async def main():
     neo_disp.fill((0, 0, 64))
     neo_disp.show()
 
-    pick_color()
+    await pick_color()
 
-    #set_brightness_task = asyncio.create_task(set_brightness())
-    sync_rtc_task = asyncio.create_task(sync_rtc())
+
+    set_brightness_task = asyncio.create_task(set_brightness())
+    ntp_sync_rtc_task = asyncio.create_task(ntp_sync_rtc())
+    #gnss_sync_rtc_task = asyncio.create_task(gnss_sync_rtc())
     update_times_task = asyncio.create_task(update_times())
     paint_display_task = asyncio.create_task(paint_display())
     info_print_task = asyncio.create_task(info_print())
 
-
-
-
-    await asyncio.gather(#set_brightness_task, 
-                        sync_rtc_task,
+    await asyncio.gather(set_brightness_task, 
+                        ntp_sync_rtc_task,
+                        #gnss_sync_rtc_task,
                         update_times_task,
                         paint_display_task,
                         info_print_task
