@@ -16,7 +16,6 @@ import adafruit_gps
 import adafruit_requests
 from adafruit_datetime import datetime
 import math
-from microcontroller import watchdog as wdt
 
 
 
@@ -45,26 +44,27 @@ MAX_BRIGHTNESS = 0.4    # TODO if USB is connected, set to 0.1 to avoid overcurr
 SHUTOFF_LUX_THRESHOLD = 13
 
 color_options = { 
+    # damn, us queer folk have the best color combos 💯🥵 (color wheels hard)
     1:((96, 96, 96, 96), (255, 255, 0), (61, 26, 120)),     # Enby
     2:((255, 0, 0), (0, 255, 0), (0, 0, 255)),              # RGB
     3:((214, 2, 112), (155, 79, 150), (0, 56, 168)),        # Bi
-    4:((255, 5, 5), (110, 80, 80, 80), (5, 0, 255)),        # USA
+    4:((255, 5, 5), (110, 80, 80, 80), (5, 0, 255)),        # USA   # destroy the patriarchy 😤
     5:((255, 33, 140), (255, 216, 0), (33, 177, 255)),      # Pan
-    6:((3, 252, 206), (165, 3, 252), (65, 252, 3)),         # Cyan, Purple, Green
+    6:((3, 252, 206), (165, 3, 252), (65, 252, 3)),         # Cyan, Purple, Green   # i need to learn color theory
     7:((96, 96, 96, 96), (255, 112, 193), (91, 206, 250)),  # Trans
-    8:((255, 20, 0), (255, 154, 0), (15, 0, 215))           # Arizona
+    8:((255, 20, 0), (255, 154, 0), (15, 0, 215))           # Arizona   # copper color is a fuck
 }
 
 
 
 # Hardware, WiFi, NTP, Color setup
-ldo = digitalio.DigitalInOut(board.LDO2)
-ldo.direction = digitalio.Direction.OUTPUT
-ldo.value = True
+#ldo = digitalio.DigitalInOut(board.LDO2)
+#ldo.direction = digitalio.Direction.OUTPUT
+#ldo.value = True
 
 i2c = busio.I2C(scl=board.IO14, sda=board.IO12, frequency=400_000)
 
-neo_disp = neopixel.NeoPixel(board.IO3, 18, brightness=0.2, auto_write=False, bpp=4)
+neo_disp = neopixel.NeoPixel(board.IO3, 18, brightness=0.0, auto_write=False, bpp=4)
 
 #neo_mcu = neopixel.NeoPixel(board.IO2, 1, brightness=1, auto_write=False, bpp=4)
 
@@ -78,7 +78,6 @@ veml = adafruit_veml7700.VEML7700(i2c)
 veml.ALS_800MS
 veml.ALS_GAIN_2
 
-wdt.mode = None # disable the watchdog. (was running into it too often)
 
 wifi.radio.connect(os.getenv("CIRCUITPY_WIFI_SSID"), os.getenv("CIRCUITPY_WIFI_PASSWORD"))
 print(f"Connected to: {os.getenv('CIRCUITPY_WIFI_SSID')}")
@@ -98,6 +97,16 @@ time_bin = None
 h_color = (255, 0, 0, 0)
 m_color = (0, 255, 0, 0)
 s_color = (0, 0, 255, 0)
+
+
+async def reboot():
+    """
+    Reboot the clock every night to get rid of bugs and memory fuckyness, which sometimes happens.
+    The rest of the code should be modified so that on a boot, before ANY pixels are lit, the
+    brightness value should be updated. 
+    We dont want to reboot at 3 am and turn on the pixels.
+    
+    """
 
 
 async def brightness_fade(pixel: object, target_brightness: float, duration: float) -> None:
@@ -135,7 +144,7 @@ async def brightness_fade(pixel: object, target_brightness: float, duration: flo
     pixel.show()
 
 
-async def set_brightness(): # TODO if 0, disable back pixel. else 100% brightness
+async def set_brightness(): # TODO if 0, disable back pixel. else 100% brightness BUG does not call brightness_fade()
     while True:
         light = veml.light
 
@@ -154,7 +163,7 @@ async def set_brightness(): # TODO if 0, disable back pixel. else 100% brightnes
             if light < SHUTOFF_LUX_THRESHOLD: 
                 await brightness_fade(neo_disp, 0, 0.3)
                 break
-            elif light < key:
+            if light < key:
                 await brightness_fade(neo_disp, value, 0.3)
                 break
             elif light > key:
@@ -187,7 +196,10 @@ async def ntp_sync_rtc():
         rtc.datetime = time_struct
         last_sync = time_struct
 
-        await asyncio.sleep(3600 + randint(-5, 5))
+
+        delay = 3600 + randint(-5, 5)
+        await asyncio.sleep(delay)  # BUG randomization does not apply. 
+                                                    # only because it is declared once, and that value is reused?
 
 
 async def gnss_sync_rtc():
@@ -299,7 +311,7 @@ async def info_print():
 
         print("\n\n")
 
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.5)
 
 
 
