@@ -99,15 +99,6 @@ m_color = (0, 255, 0, 0)
 s_color = (0, 0, 255, 0)
 
 
-async def reboot():
-    """
-    Reboot the clock every night to get rid of bugs and memory fuckyness, which sometimes happens.
-    The rest of the code should be modified so that on a boot, before ANY pixels are lit, the
-    brightness value should be updated. 
-    We dont want to reboot at 3 am and turn on the pixels.
-    
-    """
-
 
 async def brightness_fade(pixel: object, target_brightness: float, duration: float) -> None:
     """
@@ -180,26 +171,29 @@ async def ntp_sync_rtc():
     global time_now
 
     while True:
-        print("Syncing time from NTP server...")
-        
-        #ntp_time = ntp.datetime
-        #rtc.datetime = ntp_time     # Update RTC datetime with NTP datetime
-        #last_sync = ntp_time
+        try:
+            print("Syncing time from NTP server...")
+            
+            #ntp_time = ntp.datetime
+            #rtc.datetime = ntp_time     # Update RTC datetime with NTP datetime
+            #last_sync = ntp_time
 
 
-        request = requests.get(f"http://worldtimeapi.org/api/timezone/{TZ_REGION}")
+            request = requests.get(f"http://worldtimeapi.org/api/timezone/{TZ_REGION}")
 
-        time = request.json()["datetime"]
-        dt_object = datetime.fromisoformat(time)
-        time_struct = dt_object.timetuple()
+            time = request.json()["datetime"]
+            dt_object = datetime.fromisoformat(time)
+            time_struct = dt_object.timetuple()
 
-        rtc.datetime = time_struct
-        last_sync = time_struct
+            rtc.datetime = time_struct
+            last_sync = time_struct
 
 
-        delay = 3600 + randint(-5, 5)
-        await asyncio.sleep(delay)  # BUG randomization does not apply. 
-                                                    # only because it is declared once, and that value is reused?
+            delay = 3600 + randint(-5, 5)
+            await asyncio.sleep(delay)  # BUG randomization does not apply. 
+                                                        # only because it is declared once, and that value is reused?
+        except Exception as e:
+            print(f"Time Update error: {e}")
 
 
 async def gnss_sync_rtc():
@@ -303,9 +297,9 @@ async def paint_display():
 
 async def info_print():
     while True:
-        print(f"Dec Time: {time_now.tm_hour}:{time_now.tm_min}:{time_now.tm_sec}")    
+        print(f"Dec Time: {time_now.tm_hour:02d}:{time_now.tm_min:02d}:{time_now.tm_sec:02d}")    
         print(f"Bin Time: {time_bin[0]}:{time_bin[1]}:{time_bin[2]}")
-        print(f"Last sync: {last_sync.tm_hour}:{last_sync.tm_min}:{last_sync.tm_sec}")
+        print(f"Last sync: {last_sync.tm_hour:02d}:{last_sync.tm_min:02d}:{last_sync.tm_sec:02d}")
 
         print(f"Using color set {color_choice}, with colors {h_color}, {m_color}, {s_color}")
 
@@ -317,8 +311,6 @@ async def info_print():
 
 async def main():
     print("Lightbeam S3")
-    neo_disp.fill((0, 0, 64))
-    neo_disp.show()
 
     await pick_color()
 
